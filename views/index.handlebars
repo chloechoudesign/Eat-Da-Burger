@@ -1,18 +1,17 @@
 <div class="container">
 
-  <div class="jumbotron">
-
-    <h1><span class="glyphicon glyphicon-fire"></span> Eat Da Burger</h1>
-    <hr>
-    <h3>Add a Burger</h3>
-      <form class="create-update-form" action="/" method="POST">
-        <div class="form-group">
-          <label for="ca">Burger Name:</label>
-          <input type="text" id="ca" name="burger_name">
-        </div>
-        <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-credit-plus"></span> Place Order</button>
-      </form>
+  <div class="text-center">
+    <img id="burger-img" src="/assets/images/burger1.png">
+    <h1 class="text-center">Eat Da Burger</h1>
+  
+    <form class="create-update-form" action="/" method="POST">
+      <div class="form-group">
+        <input type="text" id="ca" name="burger_name">
+        <input type="submit" id="add-burger" value="Place Order">
+      </div>
+    </form>
   </div>
+
 
   <div class="row">
 
@@ -23,11 +22,12 @@
           {{#each burgers}}
           {{#unless this.devoured}}
           <li class="list-group-item">
-            <h4>{{this.burger_name}}</h4>
+            <h2>{{this.burger_name}}</h2>
 
             <form action="/{{this.id}}?_method=PUT" method="POST">
               <input type="hidden" name="devoured" value="true">
-              <button class="btn btn-danger" type="submit">Devour it!</button>
+              <input type="submit" id="devour-burger" value="Devour it!">
+              {{!-- <button class="btn btn-danger" type="submit">Devour it!</button> --}}
             </form>
           </li>
           {{/unless}}
@@ -42,11 +42,12 @@
             {{#each burgers}}
             {{#if this.devoured}}
             <li class="list-group-item">
-             <h4>{{this.burger_name}}</h4>
+             <h2>{{this.burger_name}}</h2>
 
              <form action="/{{this.id}}?_method=PUT" method="POST">
               <input type="hidden" name="devoured" value="false">
-              <button class="btn btn-primary" type="submit">Order again</button>
+              <input type="submit" id="order-burger" value="Order again">
+              {{!-- <button class="btn btn-primary" type="submit">Order again</button> --}}
              </form>
             </li>
             {{/if}}
@@ -55,14 +56,16 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p><a href="#"><a href="https://github.com/chloechoudesign/Eat-Da-Burger">GitHub Repo</a></p>
-    </div>
-  </footer>
+
 
 
 </div>
+
+ <!-- borders -->
+<div id="top"></div>
+<div id="bottom"></div>
+<div id="left"></div>
+<div id="right"></div>
 
 
 
