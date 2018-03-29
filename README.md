@@ -22,7 +22,6 @@
 - Express.js
 - Handlebars
 - MySQL
-- ORM
 - express NPM Package 
 - method-override NPM Package
 - body-parser NPM Package 
